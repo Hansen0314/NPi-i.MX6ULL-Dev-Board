@@ -55,7 +55,8 @@ NPi i.MX6ULL Dev Board - 512MB NAND FLASH Version:
 |eMMC|onboard 8GB(NPi i.MX6ULL Dev Board - 8G eMMC Version)|
 |NAND|onboard 512M(NPi i.MX6ULL Dev Board - 512MB NAND FLASH Version)|
 |dimension|61mm x 100mm|
-|Operating temperature | -20℃ ~ 80℃ |
+|Operating temperature(NPi i.MX6ULL Dev Board - 8G eMMC Version)| -20℃ ~ 80℃ |
+|Operating temperature(NPi i.MX6ULL Dev Board - 512MB NAND FLASH Version)| -40℃ ~ 80℃ |
 
 <div class="admonition note" >
 <p class="admonition-title">Note</p>
