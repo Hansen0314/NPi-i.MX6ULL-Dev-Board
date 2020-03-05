@@ -2,8 +2,10 @@
 name: NPi i.MX6ULL Dev Board - Linux SBC
 category: Single Board Computer 
 bzurl: https://www.seeedstudio.com/NPi-i-MX6ULL-Dev-Board-Industrial-Grade-Linux-SBC-eMMC-Version-p-4221.html
+bzurl: https://www.seeedstudio.com/NPi-i-MX6ULL-Dev-Board-Industrial-Grade-Linux-SBC-NAND-Version-p-4220.html
 wikiurl:
 sku: 102991306(emmc)
+sku: 102991306(NANO)
 ---
 
 # NPi i.MX6ULL Dev Board - Linux SBC
@@ -23,7 +25,13 @@ The core module is composed of the i.MX6ULL core and 512MB DDR3L, 256MB NAND FLA
  
 The breakout board mainly includes various peripheral interfaces and input and output, IO expansion. Including but not limited to two 100M ethernet port, one USB Host and one USB OTG port, one 24bit RGB LCD Interface, 2x 40 Pin I/O expansion header, etc. Such a wealth of resources will meet your various control needs. All those features make it a perfect solution for industrial control, rail transit, drone control, and audio output, etc.
 
+NPi i.MX6ULL Dev Board - 8G eMMC Version:
+
 [![Get one now](https://raw.githubusercontent.com/SeeedDocument/Seeed-WiKi/master/docs/images/get_one_now.png)](https://www.seeedstudio.com/NPi-i-MX6ULL-Dev-Board-Industrial-Grade-Linux-SBC-eMMC-Version-p-4221.html)
+
+NPi i.MX6ULL Dev Board - 256MB NAND FLASH Version:
+
+[![Get one now](https://raw.githubusercontent.com/SeeedDocument/Seeed-WiKi/master/docs/images/get_one_now.png)](https://www.seeedstudio.com/NPi-i-MX6ULL-Dev-Board-Industrial-Grade-Linux-SBC-NAND-Version-p-4220.html)
 
 
 ## Features
@@ -112,7 +120,7 @@ The operating temperature here refers specifically to the Core module, and the t
 
 **Materials Required**
 
-- NPi i.MX6ULL Dev Board - Linux SBC NAND Version
+- NPi i.MX6ULL Dev Board - Linux SBC NAND Version(or eMMC Version)
 - 4GB (or more memory) SD card and SD card reader
 - PC or Mac
 - [USB To Uart Adapter](https://www.seeedstudio.com/USB-To-Uart-5V%26amp%3B3V3-p-1832.html) (optional)
