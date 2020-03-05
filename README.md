@@ -20,11 +20,8 @@ The whole board is made by a core module and a breakout board, and the component
 
 The core module is composed of the i.MX6ULL core and 512MB DDR3L, 256MB NAND FLASH(or 8GB eMMC). In fact, depending on the Flash, the NPi i.MX6ULL Dev Board can be divided into two different Version.
 
-- [NPi i.MX6ULL Dev Board - 8G eMMC Version](https://www.seeedstudio.com/NPi-i-MX6ULL-Dev-Board-Industrial-Grade-Linux-SBC-eMMC-Version-p-4221.html)
-- [NPi i.MX6ULL Dev Board - 256MB NAND FLASH Version](https://www.seeedstudio.com/NPi-i-MX6ULL-Dev-Board-Industrial-Grade-Linux-SBC-NAND-Version-p-4220.html)
- 
 The breakout board mainly includes various peripheral interfaces and input and output, IO expansion. Including but not limited to two 100M ethernet port, one USB Host and one USB OTG port, one 24bit RGB LCD Interface, 2x 40 Pin I/O expansion header, etc. Such a wealth of resources will meet your various control needs. All those features make it a perfect solution for industrial control, rail transit, drone control, and audio output, etc.
-
+ 
 NPi i.MX6ULL Dev Board - 8G eMMC Version:
 
 [![Get one now](https://raw.githubusercontent.com/SeeedDocument/Seeed-WiKi/master/docs/images/get_one_now.png)](https://www.seeedstudio.com/NPi-i-MX6ULL-Dev-Board-Industrial-Grade-Linux-SBC-eMMC-Version-p-4221.html)
