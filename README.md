@@ -312,7 +312,7 @@ Finally, you will get the above information.
 
 #### UART
 
-In this section, we will explain the basic use of serial port and terminal equipment. Now we will control the uart3 to tell you how to use it. 
+In this section, we will explain the basic use of serial port and terminal equipment. Now we will control the uart3 to tell you how to use it.
 
 **Materials Required**
 
@@ -363,14 +363,13 @@ finally,we will get 'seeedstduio' string in the putty if connect successfully.
 
 #### I2C
 
-In this section introduces the use of I2C bus in the application layer.Now we will use i2c1 and Grove - Barometer Sensor (BMP280) to to tell you how to use it.
+In this section, we will explain the control principle of the Linux i2c driver-related application layer program. Now we will use i2c1 and Grove - Barometer Sensor (BMP280) to tell you how to use it.
 
 **Materials Required**
 
 - NPi i.MX6ULL Dev Board - Linux SBC NAND Version(or eMMC Version)
 - [Grove - 4 pin Female Jumper to Grove 4 pin Conversion Cable ](https://www.seeedstudio.com/Grove-4-pin-Female-Jumper-to-Grove-4-pin-Conversion-Cable-5-PCs-per-PAck.html)
 - [Grove - BME280 Environmental Sensor (Temperature Humidity Barometer)](https://www.seeedstudio.com/Grove-BME280-Environmental-Sensor-Temperature-Humidity-Barometer.html)
-
 
 **Software**
 
@@ -382,7 +381,7 @@ apt install i2c-tools -y
 
 **step 2.** Visit the [PinMap](https://docs.google.com/spreadsheets/d/1CRQrkBshc_2KFwC0NHmuwaJ_SedR24Oc1Ia9RGR3Us0/edit#gid=1256668665) to find I2C1's pin number of NPi i.MX6ULL Dev Board.
 
-**step 3.** Connect Grove - BME280 to I2C1 on NPi i.MX6ULL Dev Board with Grove - 4 pin Female Jumper to Grove 4 pin Conversion Cable 
+**step 3.** Connect Grove - BME280 to I2C1 on NPi i.MX6ULL Dev Board with Grove - 4 pin Female Jumper to Grove 4 pin Conversion Cable.
 
 **step 4.** Detect I2C's address of Grove - BME280 by using 
 `i2cdetect`. 0 means i2c1,so if you want to detect i2c2 you need use `i2cdetect -y 1` to detect.
@@ -401,7 +400,6 @@ root@npi:~# i2cdetect -y 0
 ```
 Now,we can find the 2C's address of Grove - BME280 is 0x77.
 
-
 **step 5.** Get Grove - BME280's ID by using i2cget
 
 ```
@@ -410,6 +408,56 @@ root@npi:~# i2cget -y 0 0x77 0xD0
 ```
 
 Finally, We can get 0x58 which is Grove - BME280's ID.and more infromation about Grove - BME280 you can visit [wiki](http://wiki.seeedstudio.com/Grove-Barometer_Sensor-BME280/) to learn.the usage of i2c-tool you can view [link](https://www.mankier.com/package/i2c-tools)
+
+#### ADC
+
+In this section, we will explain the control principle of the Linux ADC driver-related application layer program.Now we will use ADC1 and Grove - Rotary Angle Sensor to tell you how to use it.
+
+**Materials Required**
+
+- NPi i.MX6ULL Dev Board - Linux SBC NAND Version(or eMMC Version)
+- [Grove - 4 pin Female Jumper to Grove 4 pin Conversion Cable ](https://www.seeedstudio.com/Grove-4-pin-Female-Jumper-to-Grove-4-pin-Conversion-Cable-5-PCs-per-PAck.html)
+- [Grove - Rotary Angle Sensor](https://www.seeedstudio.com/Grove-Rotary-Angle-Sensor.html)
+
+**Software**
+
+- **step 1.** Select P12 in `fire-config` to enable ADC1  
+
+```
+fire-config
+```
+![](IMG/enable-adc.png)
+
+You will get cmd as follow if enabled successfully.
+
+```
+root@npi:~# ls /sys/bus/iio/devices/iio\:device0
+buffer              in_voltage3_raw                sampling_frequency_available
+dev                 in_voltage_sampling_frequency  scan_elements
+in_conversion_mode  in_voltage_scale               subsystem
+in_voltage0_raw     name                           trigger
+in_voltage1_raw     of_node                        uevent
+in_voltage2_raw     power
+```
+
+- **step 2.** Visit the [PinMap](https://docs.google.com/spreadsheets/d/1CRQrkBshc_2KFwC0NHmuwaJ_SedR24Oc1Ia9RGR3Us0/edit#gid=1256668665) to find ADC1's pin number of NPi i.MX6ULL Dev Board.You can find the GPIO number as follow picture.
+
+![](IMG/adc-pin-map.png)
+
+**step 3.** Connect Grove - Grove - Rotary Angle Sensor to ADC1 on NPi i.MX6ULL Dev Board with Grove - 4 pin Female Jumper to Grove 4 pin Conversion Cable.
+
+**step 4.** Get the AD data of Grove - Grove - Rotary Angle Sensor.
+
+```
+root@npi:~# cat /sys/bus/iio/devices/iio\:device0/\\in_voltage3_raw
+82
+```
+
+Refer to the above information you can learn we are reading GPIO1_IO3 pins analog value.
+
+#### SPI
+
+In this section, we will explain the control principle of the Linux SPI driver-related application layer program.Now we will use ADC1 and Grove - Rotary Angle Sensor to tell you how to use it.
 
 
 ## Resourses
