@@ -479,7 +479,7 @@ fire-config
 - **Step 3.** Install dependencies about seeed-linux-dtoverlays
 
 ```bsah
-sudo apt install -y make git device-tree-compiler linux-headers-$(uname -r) gcc
+apt install -y make git device-tree-compiler linux-headers-$(uname -r) gcc
 ```
 
 - **Step 4.** Make and install driver of NPi i.MX6ULL Dev Board from `seeed-linux-dtverlays` in the GitHub.
@@ -487,12 +487,12 @@ sudo apt install -y make git device-tree-compiler linux-headers-$(uname -r) gcc
 ```bash
 git clone https://github.com/Seeed-Studio/seeed-linux-dtverlays
 cd seeed-linux-dtverlays
-make all_imx6ull && sudo make install_imx6ull
+make all_imx6ull && make install_imx6ull
 ```
 
 <div class="admonition note" >
 <p class="admonition-title">Note</p>
-You can use `sudo mkdir -p /lib/modules/$(uname -r)/extra/seeed` to create files if you find some error during the making.
+You can use `mkdir -p /lib/modules/$(uname -r)/extra/seeed` to create files if you find some error during the making.
 </div>
 
 - **Step 5.** add dtbo package in `/boot/uEnv.txt` to make it become effective after reboot.
@@ -505,13 +505,13 @@ reboot
 - **Step 6.** Check the driver whether install successfully by using `dmesg`, you will view the below information if it is successful.
 
 ```bash
-debian@npi:~$ sudo insmod /lib/modules/$(uname -r)/extra/seeed/mcp25xxfd-can.ko
-debian@npi:~$ dmesg | grep spi
+root@npi:~ insmod /lib/modules/$(uname -r)/extra/seeed/mcp25xxfd-can.ko
+root@npi:~ dmesg | grep spi
 [    1.057609] spi_imx 44009000.spi: driver initialized
 [    9.852726] mcp25xxfd spi0.0: Linked as a consumer to regulator.6
 [    9.966510] mcp25xxfd spi0.0: MCP2517 successfully initialized.
 
-debian@npi:~$ ifconfig -a
+root@npi:~ ifconfig -a
 can0: flags=128<NOARP>  mtu 16
         unspec 00-00-00-00-00-00-00-00-00-00-00-00-00-00-00-00  txqueuelen 10  (UNSPEC)
         RX packets 0  bytes 0 (0.0 B)
@@ -555,9 +555,9 @@ You need to view SPI's guide to install dependencies about the imx-seeed-voice c
 
 - **Step 4.** Check the driver whether install successfully by using `aplay`, you will view the below information if it is successful.
 
-```bash
-debian@npi:~$ sudo insmod /lib/modules/$(uname -r)/extra/seeed/snd-soc-seeed-voicecard.ko
-debian@npi:~$ aplay -l
+```
+root@npi:~# insmod /lib/modules/$(uname -r)/extra/seeed/snd-soc-seeed-voicecard.ko
+root@npi:~# aplay -l
 **** List of PLAYBACK Hardware Devices ****
 card 0: seeed2micvoicec [seeed-2mic-voicecard], device 0: bcm2835-i2s-wm8960-hifi wm8960-hifi-0 []
   Subdevices: 1/1
