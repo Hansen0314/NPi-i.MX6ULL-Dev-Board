@@ -570,6 +570,8 @@ The more information about the ReSpeaker 2-Mics Pi HAT you can visit [wiki](http
 
 - **[PDF]** [i.MX 6ULL datasheet](/REG/IMX6ULLCEC.pdf)
 - **[PDF]** [NPi i.MX6ULL Dev Board - Linux SBC Mechanical_Dimensions](/REG/Mechanical_Dimensions.pdf)
+- **[PDF]** [NPi i.MX6ULL Dev Board - Linux SBC Breakout Board](/REG/NPi-i.MX6ULL-Breakout-Board-Schematic-V1.0.pdf)
+- **[PDF]** [NPi i.MX6ULL Dev Board - Linux SBC Core Module](/REG/NPi-i.MX6ULL-Core-Module-Schematic-V1.0.pdf)
 
 ## Tech Support
 Please submit any technical issue into our [forum](http://forum.seeedstudio.com/). <br /><p style="text-align:center"><a href="https://www.seeedstudio.com/act-4.html?utm_source=wiki&utm_medium=wikibanner&utm_campaign=newproducts" target="_blank"><img src="https://github.com/SeeedDocument/Wiki_Banner/raw/master/new_product.jpg" /></a></p>
