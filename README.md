@@ -444,7 +444,7 @@ in_voltage2_raw     power
 
 ![](IMG/adc-pin-map.png)
 
-**step 3.** Connect Grove - Grove - Rotary Angle Sensor to ADC1 on NPi i.MX6ULL Dev Board with Grove - 4 pin Female Jumper to Grove 4 pin Conversion Cable.
+**step 3.** Connect Grove - Rotary Angle Sensor to ADC1 on NPi i.MX6ULL Dev Board with Grove - 4 pin Female Jumper to Grove 4 pin Conversion Cable.
 
 **step 4.** Get the AD data of Grove - Grove - Rotary Angle Sensor.
 
@@ -457,8 +457,113 @@ Refer to the above information you can learn we are reading GPIO1_IO3 pins analo
 
 #### SPI
 
-In this section, we will explain the control principle of the Linux SPI driver-related application layer program.Now we will use ADC1 and Grove - Rotary Angle Sensor to tell you how to use it.
+In this section, we will explain the control principle of the Linux SPI program.Now we will use SPI and 2-Channel CAN-BUS(FD) Shield for Raspberry Pi to tell you how to use it.
 
+**Materials Required**
+
+- NPi i.MX6ULL Dev Board - Linux SBC NAND Version(or eMMC Version)
+- [2-Channel CAN-BUS(FD) Shield for Raspberry Pi](https://www.seeedstudio.com/2-Channel-CAN-BUS-FD-Shield-for-Raspberry-Pi-p-4072.html)
+
+**Software**
+
+- **Step 1.** According to the [installation guide](http://wiki.seeedstudio.com/2-Channel-CAN-BUS-FD-Shield-for-Raspberry-Pi/#mounting-guide) insert 2 Channel CAN BUS FD Shield for Raspberry Pi onto NPi i.MX6ULL Dev Board.
+
+- **Step 2.** Select P23 in fire-config to expand Filesystem.
+
+```bash
+fire-config
+```
+
+![](IMG/ExpandSDCard.png)
+
+- **Step 3.** Install dependencies about seeed-linux-dtoverlays
+
+```bsah
+sudo apt install -y make git device-tree-compiler linux-headers-$(uname -r) gcc
+```
+
+- **Step 4.** Make and install driver of NPi i.MX6ULL Dev Board from `seeed-linux-dtverlays` in the GitHub.
+
+```bash
+git clone https://github.com/Seeed-Studio/seeed-linux-dtverlays
+cd seeed-linux-dtverlays
+make all_imx6ull && sudo make install_imx6ull
+```
+
+<div class="admonition note" >
+<p class="admonition-title">Note</p>
+You can use `sudo mkdir -p /lib/modules/$(uname -r)/extra/seeed` to create files if you find some error during the making.
+</div>
+
+- **Step 5.** add dtbo package in `/boot/uEnv.txt` to make it become effective after reboot.
+
+```bash
+echo dtoverlay=/lib/firmware/imx-MCP2517FD-can0-overlay.dtbo >> /boot/uEnv.txt
+reboot
+```
+
+- **Step 6.** Check the driver whether install successfully by using `dmesg`, you will view the below information if it is successful.
+
+```bash
+debian@npi:~$ sudo insmod /lib/modules/$(uname -r)/extra/seeed/mcp25xxfd-can.ko
+debian@npi:~$ dmesg | grep spi
+[    1.057609] spi_imx 44009000.spi: driver initialized
+[    9.852726] mcp25xxfd spi0.0: Linked as a consumer to regulator.6
+[    9.966510] mcp25xxfd spi0.0: MCP2517 successfully initialized.
+
+debian@npi:~$ ifconfig -a
+can0: flags=128<NOARP>  mtu 16
+        unspec 00-00-00-00-00-00-00-00-00-00-00-00-00-00-00-00  txqueuelen 10  (UNSPEC)
+        RX packets 0  bytes 0 (0.0 B)
+        RX errors 0  dropped 0  overruns 0  frame 0
+        TX packets 0  bytes 0 (0.0 B)
+        TX errors 0  dropped 0 overruns 0  carrier 0  collisions 0
+```
+
+The more information about the 2-Channel CAN-BUS(FD) Shield you can visit [wiki](http://wiki.seeedstudio.com/2-Channel-CAN-BUS-FD-Shield-for-Raspberry-Pi/#install-can-hat)
+
+#### IIS
+
+In this section, we will explain the control principle of the Linux IIS program.Now we will use IIS and ReSpeaker 2-Mics Pi HAT to tell you how to use it.
+
+**Materials Required**
+
+- NPi i.MX6ULL Dev Board - Linux SBC NAND Version(or eMMC Version)
+- [ReSpeaker 2-Mics Pi HAT](https://www.seeedstudio.com/ReSpeaker-2-Mics-Pi-HAT.html)
+
+**Software**
+
+- **Step 1.** According to the [installation guide](http://wiki.seeedstudio.com/ReSpeaker_2_Mics_Pi_HAT/#getting-started) insert ReSpeaker 2-Mics Pi HAT onto NPi i.MX6ULL Dev Board.
+
+- **Step 2.** Install alsa-utils by using `apt`
+
+```bash
+apt install alsa-utils -y
+```
+
+- **Step 3.** add dtbo package in `/boot/uEnv.txt` to make it become effective after reboot.
+
+```bash
+echo dtoverlay=/lib/firmware/imx-seeed-voicecard-2mic-overlay.dtbo >> /boot/uEnv.txt
+reboot
+```
+
+<div class="admonition note" >
+<p class="admonition-title">Note</p>
+You need to view SPI's guide to install dependencies about the imx-seeed-voice card-2 mic-overlay.dtbo if you cannot find imx-seeed-voice card-2mic-overlay.dtbo.
+</div>
+
+- **Step 4.** Check the driver whether install successfully by using `aplay`, you will view the below information if it is successful.
+
+```bash
+debian@npi:~$ sudo insmod /lib/modules/$(uname -r)/extra/seeed/snd-soc-seeed-voicecard.ko
+debian@npi:~$ aplay -l
+**** List of PLAYBACK Hardware Devices ****
+card 0: seeed2micvoicec [seeed-2mic-voicecard], device 0: bcm2835-i2s-wm8960-hifi wm8960-hifi-0 []
+  Subdevices: 1/1
+  Subdevice #0: subdevice #0
+```
+The more information about the ReSpeaker 2-Mics Pi HAT you can visit [wiki](http://wiki.seeedstudio.com/ReSpeaker_2_Mics_Pi_HAT/)
 
 ## Resourses
 -----
