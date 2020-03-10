@@ -132,9 +132,10 @@ Please plug the USB cable gently, otherwise you may damage the interface.Please 
 
 **Mirror Installation**
 
-you need to install the NPi i.MX6ULL Dev Board - Linux SBC image from your SD card to get it up and running. 
+you need to install the NPi i.MX6ULL Dev Board - Linux SBC image from your SD card to get it up and running. We offer two ways to boot the NPi i.MX6ULL Dev Board - Linux SBC. You can either boot from the SD card or boot from the eMMC(or NAND).
 
-**Boot from SD card**
+
+**A.Boot from SD card**
 
 - **Step 1.** Select the latest [firmware](https://files.seeedstudio.com/linux/NPi+i.MX6ULL/imx6ull-debian-buster-console-armhf-latest-2gb.img.xz)
 
@@ -154,6 +155,24 @@ you need to install the NPi i.MX6ULL Dev Board - Linux SBC image from your SD ca
 <p class="admonition-title">Note</p>
 if Heartbeat LED cannot flash, it means starting failed. Please check the image whether it installs fine.
 </div>
+
+**B. Boot from eMMC(NAND) card**
+
+- **Step 1.** the process is the same as **A. Boot from SD card** if you first start up the NPi i.MX6ULL Dev Board.
+
+- **Step 2.** Select P22 in `fire-config` to enable flash boot then reboot.
+
+```bash
+sudo fire-config
+```
+
+![](IMG/flasher.png)
+
+- **Step 3.** Wait for the LED  on the NPI i.MX6ULL Dev Board flash continuously. that indicate the eMMC(or NAND) buring successfully if the LED flash continuously.
+
+- **Step 4.** Power off and unplug the SD card.
+
+- **Step 5.** Set the 8-digit DIP switch to EMMC(2-4-5-7) or NAND(2-3-6) and restart.
 
 **Serial Console**
 
@@ -563,6 +582,7 @@ card 0: seeed2micvoicec [seeed-2mic-voicecard], device 0: bcm2835-i2s-wm8960-hif
   Subdevices: 1/1
   Subdevice #0: subdevice #0
 ```
+
 The more information about the ReSpeaker 2-Mics Pi HAT you can visit [wiki](http://wiki.seeedstudio.com/ReSpeaker_2_Mics_Pi_HAT/)
 
 ## Resourses
